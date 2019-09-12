@@ -1,4 +1,4 @@
-package com.syso.bean;
+package site.syso.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

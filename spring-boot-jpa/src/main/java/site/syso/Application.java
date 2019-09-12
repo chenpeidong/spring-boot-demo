@@ -1,4 +1,4 @@
-package com.syso;
+package site.syso;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
