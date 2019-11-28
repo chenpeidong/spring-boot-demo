@@ -10,13 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import site.syso.bean.Student;
+import site.syso.repository.StudentRepository;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class StudentComponentTest {
 
     @Autowired
-    private StudentComponent studentComponent;
+    private StudentRepository studentRepository;
 
     @Test
     public void save() {
@@ -25,23 +26,23 @@ public class StudentComponentTest {
         stu.setName("Bob");
         stu.setHobby("biu biu biu~~");
         stu.setBirthday(new Date());
-        studentComponent.save(stu);
+        studentRepository.save(stu);
     }
 
     @Test
     public void findById() {
-        Student stu = studentComponent.findById(1L);
+        Student stu = studentRepository.findById(1L).orElse(null);
         System.out.println(stu);
     }
 
     @Test
     public void findByName() {
-        List<Student> bob = studentComponent.findByName("Bob");
+        List<Student> bob = studentRepository.findByName("Bob");
         bob.forEach(System.out::println);
     }
 
     @Test
     public void delete() {
-        studentComponent.delete(3L);
+        studentRepository.delete(new Student().setId(3L));
     }
 }
