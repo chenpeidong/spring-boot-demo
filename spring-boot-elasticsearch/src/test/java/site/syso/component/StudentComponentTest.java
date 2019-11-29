@@ -31,7 +31,7 @@ public class StudentComponentTest {
 
     @Test
     public void findById() {
-        Student stu = studentRepository.findById(1L).orElse(null);
+        Student stu = studentRepository.findById(4L).orElse(null);
         System.out.println(stu);
     }
 
